@@ -1,6 +1,6 @@
 import ipc from 'node-ipc';
 import { INodePropertyOptions } from 'n8n-workflow';
-import { Client, Message, User } from 'discord.js';
+import { Client, Message, PartialMessage, User } from 'discord.js';
 import axios from 'axios';
 import state from './state';
 
@@ -145,7 +145,7 @@ export const getRoles = async (that: any): Promise<INodePropertyOptions[]> => {
 
 export const triggerWorkflow = async (
   webhookId: string,
-  message: Message | null,
+  message: Message | PartialMessage | null,
   placeholderId: string,
   baseUrl: string,
   user?: User,
@@ -168,9 +168,9 @@ export const triggerWorkflow = async (
         content: message?.content,
         channelId: message?.channelId ?? channelId,
         placeholderId,
-        userId: message?.author.id ?? user?.id,
-        userName: message?.author.username ?? user?.username,
-        userTag: message?.author.tag ?? user?.tag,
+        userId: message?.author?.id ?? user?.id,
+        userName: message?.author?.username ?? user?.username,
+        userTag: message?.author?.tag ?? user?.tag,
         messageId: message?.id,
         attachments: message?.attachments,
         presence,

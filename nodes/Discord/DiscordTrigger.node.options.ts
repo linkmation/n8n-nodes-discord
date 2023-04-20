@@ -21,6 +21,7 @@ export const options: INodeProperties[] = [
       show: {
         type: [
           'message',
+          'message_update',
           'command',
           'userLeaves',
           'userPresenceUpdate',
@@ -46,6 +47,11 @@ export const options: INodeProperties[] = [
         name: 'Message',
         value: 'message',
         description: 'When a message is sent in the selected channels.',
+      },
+      {
+        name: 'Message Update',
+        value: 'message_update',
+        description: 'When a message is update in the selected channels.',  
       },
       {
         name: 'Command',
@@ -149,7 +155,7 @@ export const options: INodeProperties[] = [
     type: 'options',
     displayOptions: {
       show: {
-        type: ['message'],
+        type: ['message', 'message_update'],
       },
     },
     options: [
@@ -188,7 +194,7 @@ export const options: INodeProperties[] = [
     type: 'string',
     displayOptions: {
       show: {
-        type: ['message'],
+        type: ['message', 'message_update'],
       },
     },
     required: true,
@@ -295,7 +301,7 @@ export const options: INodeProperties[] = [
     type: 'boolean',
     displayOptions: {
       show: {
-        type: ['message'],
+        type: ['message', 'message_update'],
       },
     },
     required: false,
@@ -308,7 +314,7 @@ export const options: INodeProperties[] = [
     type: 'boolean',
     displayOptions: {
       show: {
-        type: ['message'],
+        type: ['message', 'message_update'],
       },
     },
     required: false,
