@@ -6,7 +6,7 @@ import state from '../state';
 export default async function (client: Client) {
   client.on('messageCreate', async (message) => {
     try {
-      if (message.author.bot || message.author.system) return;
+      // if (message.author.bot || message.author.system) return;
       const userRoles = message.member?.roles.cache.map((role) => role.id);
       const clientId = client.user?.id;
       const botMention = message.mentions.users.some((user) => user.id === clientId);
